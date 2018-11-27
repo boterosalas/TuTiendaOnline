@@ -7,17 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  bandera:boolean = true;
+  bandera: number = 1;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  activo(e){
-    e.target.classList.add('activo');
-    //console.log(document.querySelectorAll('div.categorias ul li'));
-    //this.bandera=!this.bandera;
+  activo(i) {
+    this.bandera = i;
   }
 
 }
