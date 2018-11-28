@@ -11,22 +11,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ListarProductosComponent } from './components/productos/listar-productos/listar-productos.component';
 import { ProductoUnicoComponent } from './components/productos/producto-unico/producto-unico.component';
+import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/pagina-no-encontrada.component'
+import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/login/login.component';
+
 //Services
 import { ProductosService } from './services/productos.service';
-import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/pagina-no-encontrada.component'
 
 
 const appRoutes: Routes = [
-  { path: 'crisis-center', component: ProductosComponent },
-  { path: 'hero', component: ProductosComponent },
-  {
-      path: 'heroes',
-      component: ProductosComponent,
-      data: { title: 'Heroes List' }
-  },
+  { path: 'productos', component: ProductosComponent },
+  { path: 'producto/:producto', component: ProductoUnicoComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'login', component: LoginComponent },
   {
       path: '',
-      redirectTo: '/heroes',
+      redirectTo: '/login',
       pathMatch: 'full'
   },
   { path: '**', component: PaginaNoEncontradaComponent }
@@ -38,7 +38,9 @@ const appRoutes: Routes = [
     ProductosComponent,
     ListarProductosComponent,
     ProductoUnicoComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

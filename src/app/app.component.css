@@ -1,1 +1,1 @@
-.padre-contenedor{display:flex;width:100%;min-height:100vh}.padre-contenedor .menu{width:20%;background-color:#c62828}.padre-contenedor .panel{width:80%}
+#contenedor-principal-general{display:flex;width:100%;min-height:100vh}

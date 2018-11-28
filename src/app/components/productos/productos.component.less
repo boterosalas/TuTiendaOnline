@@ -1,108 +1,168 @@
-.font-anton{
-    font-family: 'Anton', sans-serif;
-}
-.m-20{
-    margin: 20px;
-}
-.titulo-tienda{
-    color: #424242;
-}
-.al-center{
-    text-align: center;
-}
-.categorias{
-    ul{
-        list-style: none;
-        display: flex;
-        border-bottom: 2px solid #c62828;
-        justify-content: flex-start;
-        padding: 0px 20px;
-        li{
-            padding: 10px;
-            border-radius: 3px 3px 0px 0px;
-            position: relative;
-            bottom: -1px;
-            color: #c62828;
-            cursor: pointer;
-            &.li-activo{
-                border: 1px solid #c62828;
-                background: #c62828;
-                border-bottom: 0px;
-                color: #ffffff;
+.contenedor-componente-productos{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    app-menu{
+        width: 20%;
+    }
+    .contenedor-principal-productos{
+        width:80%;
+        .titulo-general-tienda{
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .categorias{
+            ul{
+                list-style: none;
+                display: flex;
+                border-bottom: 2px solid #c62828;
+                justify-content: flex-start;
+                padding: 0px 20px;
+                li{
+                    padding: 10px;
+                    border-radius: 3px 3px 0px 0px;
+                    position: relative;
+                    bottom: -1px;
+                    color: #c62828;
+                    cursor: pointer;
+                    transition: 0.1s;
+                    font-family: 'Montserrat', sans-serif;
+                    &.li-activo{
+                        border: 1px solid #c62828;
+                        background: #c62828;
+                        border-bottom: 0px;
+                        color: #ffffff;
+                    }
+                }
             }
         }
-    }
-}
-.muestreo-productos{
-    padding: 20px;
-    display: flex;
-    align-items: stretch;
-    .categoria-producto{
-        display: flex;
-        justify-content: space-around;
-        align-content: space-between;
-        flex-wrap: wrap;
-        width: 100%;
-        background-color: #ffcdd2;
-        padding: 20px;
-        .padre-producto{
-            background-color: #ffffff;
-            border-radius: 3px;
-            width: 22%;
-            min-width: 200px;
-            height: 300px;
-            margin: 7px;
-            //border: 1px solid;
+        .muestreo-productos{
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            -webkit-box-shadow: 0px 0px 20px 0px rgba(102,102,102,1);
-            -moz-box-shadow: 0px 0px 20px 0px rgba(102,102,102,1);
-            box-shadow: 0px 0px 20px 0px rgba(102,102,102,1);
-            #jean-dama{
-                background-image: url('http://www.monterojeans.com.co/tienda/168-large_default/11944-jean-dama-skinny.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-            .imagen-producto{
-                width: 100%;
-                height: 200px;
+            align-items: stretch;
+            .categoria-producto{
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                background: #ffffff;
-                position: relative;
-                cursor: pointer;
-                &:hover {
-                    .padre-plus{
-                    opacity: 0.3;
-                    z-index: 10;
+                justify-content: space-around;
+                align-content: space-between;
+                flex-wrap: wrap;
+                width: 100%;
+                background-color: #ffcdd2;
+                padding: 20px;
+                .padre-producto{
+                    background-color: #ffffff;
+                    border-radius: 3px;
+                    width: 22%;
+                    min-width: 200px;
+                    height: 300px;
+                    margin: 7px;
+                    //border: 1px solid;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    position: relative;
+                    -webkit-box-shadow: 0px 0px 20px 0px #cacaca;
+                    -moz-box-shadow: 0px 0px 20px 0px #cacaca;
+                    box-shadow: 0px 0px 20px 0px #cacaca;
+                    &:hover{
+                        -webkit-box-shadow: 0px 0px 20px 0px #a1a1a1;
+                        -moz-box-shadow: 0px 0px 20px 0px #a1a1a1;
+                        box-shadow: 0px 0px 20px 0px #a1a1a1;
                     }
-                    .fas{
-                        transform: scale(1);
+                    .nombre-producto{
+                        height: 35px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #424242;
+                        font-weight: bold;
+                        font-size: 23px;
+                        font-family: 'Montserrat', sans-serif;
+                    }
+                    #jean-dama{
+                        background-image: url('http://www.monterojeans.com.co/tienda/168-large_default/11944-jean-dama-skinny.jpg');
+                    }
+                    .imagen-producto{
+                        width: 100%;
+                        height: 200px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: #ffffff;
+                        position: relative;
+                        cursor: pointer;
+                        background-size: contain;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        &:hover{
+                            .padre-plus{
+                                opacity: 0.3;
+                                z-index: 10;
+                            }
+                            .fas{
+                                transform: scale(1);
+                            }
+                        }
+                        .padre-plus{
+                            width: 100%;
+                            height: 200px;
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            background-color: #e0e0e0;
+                            transition: 0.3s;
+                            opacity: 0;
+                            z-index: 0;
+                        }
+                        .fas{
+                            font-size: 50px;
+                            transition: 0.3s;
+                            transform: scale(0);
+                            color: #bdbdbd;
+                        }
+                    }
+                    .contenido-descripcion{
+                        height: 100px;
+                        background-color: #ffffff;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        flex-direction: column;
+                        position: relative;
+                        .nombre-tienda{
+                            font-family: 'Montserrat', sans-serif;
+                            color: #424242;
+
+                        }
+                        .precio-compra{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            .precio{
+                                color: #424242;
+                                font-weight: bold;
+                                font-size: 20px;
+                                font-family: 'Montserrat', sans-serif;
+                            }
+                            .compra{
+                                border: 1px solid #c62828;
+                                background: #c62828;
+                                border-radius: 5px;
+                                color: #ffffff;
+                                padding: 5px;
+                                transition: 0.2s;
+                                font-family: 'Montserrat', sans-serif;
+                                cursor: pointer;
+                                &:hover{
+                                    color: #c62828;
+                                    background: #ffffff;
+                                }
+                            }
+                        }
                     }
                 }
-                .padre-plus{
-                    width: 100%;
-                    height: 200px;
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    background-color: #e0e0e0;
-                    transition: 0.3s;
-                    opacity: 0;
-                    z-index: 0;
-                }
-                .fas{
-                    font-size: 50px;
-                    transition: 0.3s;
-                    transform: scale(0);
-                    color: #bdbdbd;
-                }
-            }
-            .contenido-descripcion{
-                height: 100px;
-                background-color: #0277bd;
             }
         }
     }

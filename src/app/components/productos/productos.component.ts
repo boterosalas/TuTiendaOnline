@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -9,9 +10,13 @@ export class ProductosComponent implements OnInit {
 
   bandera: number = 1;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSelect(producto) {
+    this.router.navigate(['/producto', producto]);
   }
 
   activo(i) {

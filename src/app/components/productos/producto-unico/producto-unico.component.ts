@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-producto-unico',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductoUnicoComponent implements OnInit {
 
-  constructor() { }
+  public productoId;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let producto = parseInt(this.route.snapshot.paramMap.get('producto'));
+    this.productoId = producto;
   }
 
 }

@@ -1,133 +1,143 @@
-<h1 class="font-anton m-20 titulo-tienda">Tu tienda online</h1>
-<div class="categorias">
-  <ul>
-    <li (click)="activo(1)" [ngClass]="{'li-activo':bandera==1}">Moda</li>
-    <li (click)="activo(2)" [ngClass]="{'li-activo':bandera==2}">Tecnología</li>
-    <li (click)="activo(3)" [ngClass]="{'li-activo':bandera==3}">Viajes</li>
-    <li (click)="activo(4)" [ngClass]="{'li-activo':bandera==4}">Vehículos</li>
-  </ul>
-</div>
-<div class="muestreo-productos">
-  <div class="categoria-producto" *ngIf="bandera==1">
-    <div class="padre-producto">
-      <div class="imagen-producto" id="jean-dama">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion">
-        <p class="al-center">Jean Dama</p>
-      </div>
+<div class="contenedor-componente-productos">
+  <app-menu></app-menu>
+  <div class="contenedor-principal-productos">
+    <h1 class="titulo-general-tienda">Tu tienda Online</h1>
+    <div class="categorias">
+      <ul>
+        <li (click)="activo(1)" [ngClass]="{'li-activo':bandera==1}">Moda</li>
+        <li (click)="activo(2)" [ngClass]="{'li-activo':bandera==2}">Tecnología</li>
+        <li (click)="activo(3)" [ngClass]="{'li-activo':bandera==3}">Viajes</li>
+        <li (click)="activo(4)" [ngClass]="{'li-activo':bandera==4}">Vehículos</li>
+      </ul>
     </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-          <div class="padre-plus"></div>
-          <i class="fas fa-plus-circle"></i>
+    <div class="muestreo-productos">
+      <div class="categoria-producto" *ngIf="bandera==1">
+        <div class="padre-producto">
+          <p class="nombre-producto">Jean Dama</p>
+          <div class="imagen-producto" id="jean-dama" (click)="onSelect(1)">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion">
+            <div class="nombre-tienda">Rifle</div>
+            <div class="precio-compra">
+              <div class="precio">$70.000</div>
+              <div class="compra">Comprar</div>
+            </div>
+          </div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
       </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-          <div class="padre-plus"></div>
-          <i class="fas fa-plus-circle"></i>
+      <div class="categoria-producto" *ngIf="bandera==2">
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
       </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
+      <div class="categoria-producto" *ngIf="bandera==3">
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
       </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-  </div>
-  <div class="categoria-producto" *ngIf="bandera==2">
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
+      <div class="categoria-producto" *ngIf="bandera==4">
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
+        <div class="padre-producto">
+          <div class="imagen-producto">
+            <div class="padre-plus"></div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="contenido-descripcion"></div>
+        </div>
       </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-  </div>
-  <div class="categoria-producto" *ngIf="bandera==3">
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-  </div>
-  <div class="categoria-producto" *ngIf="bandera==4">
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
-    </div>
-    <div class="padre-producto">
-      <div class="imagen-producto">
-        <div class="padre-plus"></div>
-        <i class="fas fa-plus-circle"></i>
-      </div>
-      <div class="contenido-descripcion"></div>
     </div>
   </div>
 </div>
