@@ -8,14 +8,18 @@ import { User } from '../models/user';
 export class UserService {
 
   listaUsuarios: AngularFireList<any>;
-  nuevoProducto: User = new User();
+  nuevoUsuario: User = new User();
 
 
 
   constructor(private firebase: AngularFireDatabase) { }
 
-  insertarProducto(user: User) {
-    this.listaUsuarios.push({
+  conseguirUsuarios(){
+    return this.listaUsuarios = this.firebase.list('usuario');
+  }
+
+  insertarUsuario(user: User) {
+    /* this.listaUsuarios.push({
       nombre: user.nombre,
       telefono: user.telefono,
       fechaNacimiento: user.fechaNacimiento,
@@ -24,12 +28,17 @@ export class UserService {
       ciudad: user.ciudad,
       cedula: user.cedula,
       genero: user.genero,
-    })
+    }) */
+
+    this.listaUsuarios.push(user);
+
+    console.log("listaUsuarios", this.listaUsuarios);
   }
 
-  actualizarProducto(user: User) {
+  actualizarUsuario(user: User) {
     this.listaUsuarios.update(user.id, {
       nombre: user.nombre,
+      password: user.password,
       telefono: user.telefono,
       fechaNacimiento: user.fechaNacimiento,
       correo: user.correo,
@@ -40,7 +49,7 @@ export class UserService {
     })
   }
 
-  eliminarProducto(user: User) {
+  eliminarUsuario(user: User) {
     this.listaUsuarios.remove(user.id);
   }
 

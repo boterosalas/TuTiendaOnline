@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //FireBase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
@@ -17,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 
 //Services
 import { ProductosService } from './services/productos.service';
+import { UserService } from './services/user.service';
 
 
 const appRoutes: Routes = [
@@ -49,10 +53,15 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
-    ProductosService
+    ProductosService,
+    UserService
+    
   ],
   bootstrap: [AppComponent]
 })
