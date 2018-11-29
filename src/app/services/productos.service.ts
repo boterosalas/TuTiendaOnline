@@ -7,41 +7,29 @@ import { Productos } from '../models/productos';
 })
 export class ProductosService {
 
-  listaProductos:AngularFireList<any>;
-  nuevoProducto:Productos = new Productos();
+  listaProductos: AngularFireList<any>;
+  nuevoProducto: Productos = new Productos();
 
 
 
-  constructor(private firebase:AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) { }
 
-conseguirProductos(){
-  return this.listaProductos = this.firebase.list('productos');
-}
+  conseguirProductos() {
+    return this.listaProductos = this.firebase.list('productos');
+  }
 
-insertarProducto(producto:Productos){
-  this.listaProductos.push({
-    nombre : producto.nombre,
-    categoria : producto.categoria,
-    imagen : producto.imagen,
-    descripcion : producto.descripcion,
-    tienda : producto.tienda,
-    precio : producto.precio
-  })
-}
+  insertarProducto(producto: Productos) {
+    this.listaProductos.push(producto);
+  }
 
-actualizarProducto(producto:Productos){
-  this.listaProductos.update(producto.id,{
-    nombre : producto.nombre,
-    categoria : producto.categoria,
-    imagen : producto.imagen,
-    descripcion : producto.descripcion,
-    tienda : producto.tienda,
-    precio : producto.precio
-  })
-}
+  actualizarProducto(producto: Productos) {
+    this.listaProductos.update(producto.id, {
+      nombre: producto.nombre,
+    })
+  }
 
-eliminarProducto(producto:Productos){
-  this.listaProductos.remove(producto.id);
-}
+  eliminarProducto(producto: Productos) {
+    this.listaProductos.remove(producto.id);
+  }
 
 }

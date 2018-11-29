@@ -14,25 +14,12 @@ export class UserService {
 
   constructor(private firebase: AngularFireDatabase) { }
 
-  conseguirUsuarios(){
-    return this.listaUsuarios = this.firebase.list('usuario');
+  conseguirUsuarios() {
+    return this.listaUsuarios = this.firebase.list('usuarios');
   }
 
   insertarUsuario(user: User) {
-    /* this.listaUsuarios.push({
-      nombre: user.nombre,
-      telefono: user.telefono,
-      fechaNacimiento: user.fechaNacimiento,
-      correo: user.correo,
-      direccion: user.direccion,
-      ciudad: user.ciudad,
-      cedula: user.cedula,
-      genero: user.genero,
-    }) */
-
     this.listaUsuarios.push(user);
-
-    console.log("listaUsuarios", this.listaUsuarios);
   }
 
   actualizarUsuario(user: User) {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 
@@ -13,7 +12,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private toastr: ToastrService
   ) { }
 
   nombre;
@@ -38,7 +36,6 @@ export class LoginComponent implements OnInit {
       this.userService.actualizarUsuario(loginForm.value);
 
     this.resetForm(loginForm);
-    this.toastr.success('Sucessful Operation', 'Product Registered');
   }
 
 }

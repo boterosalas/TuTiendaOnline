@@ -1,0 +1,25 @@
+<div class="contenedor-componente-nuevo-producto">
+  <app-menu></app-menu>
+  <form #formProducto="ngForm" (ngSubmit)="insertarProducto(formProducto)">
+    <label>
+      Name:
+      <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="productoServices.nuevoProducto.nombre">
+    </label>
+    <input type="submit" value="Guardar">
+  </form>
+  <p>
+    Nombre: {{ nombre.value }}
+  </p>
+  <table>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let producto of productos">
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>

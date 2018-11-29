@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //FireBase
@@ -17,6 +17,7 @@ import { ProductoUnicoComponent } from './components/productos/producto-unico/pr
 import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/pagina-no-encontrada.component'
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
+import { NuevoProductoComponent } from './components/productos/nuevo-producto/nuevo-producto.component';
 
 //Services
 import { ProductosService } from './services/productos.service';
@@ -28,9 +29,10 @@ const appRoutes: Routes = [
   { path: 'producto/:producto', component: ProductoUnicoComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'nuevo-producto', component: NuevoProductoComponent },
   {
       path: '',
-      redirectTo: '/login',
+      redirectTo: '/nuevo-producto',
       pathMatch: 'full'
   },
   { path: '**', component: PaginaNoEncontradaComponent }
@@ -44,7 +46,8 @@ const appRoutes: Routes = [
     ProductoUnicoComponent,
     PaginaNoEncontradaComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    NuevoProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,9 @@ const appRoutes: Routes = [
     ),
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [
     ProductosService,
