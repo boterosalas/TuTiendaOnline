@@ -1,0 +1,19 @@
+<div class="contenedor-componente-nueva-categoria">
+    <app-menu></app-menu>
+    <div class="contenido-nueva-categoria">
+        <h1 class="titulo-componente">Administrar categorías</h1>
+      <div class="formulario-nueva-categoria">
+        <form #formCategoria="ngForm" (ngSubmit)="insertarCategoria(formCategoria)">
+          <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.$id">
+          <label>
+            Nombre:
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.nombre">
+          </label>
+          <input type="submit" value="Guardar">
+        </form>
+      </div>
+      <div class="componente-listar-categorias">
+          <app-listar-categorias></app-listar-categorias>
+      </div>
+    </div>
+  </div>

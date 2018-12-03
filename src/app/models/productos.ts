@@ -1,6 +1,6 @@
 export class Productos {
-    id?: string;
-    nombre: string;
+    $id?: string;
+    nombre?: string;
     categoria?: string;
     imagen?: string;
     descripcion?: string;

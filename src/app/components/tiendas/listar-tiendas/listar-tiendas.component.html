@@ -1,0 +1,15 @@
+<div class="contenedor-componente-listar-tiendas">
+    <table class="tabla-tiendas">
+      <tr>
+        <td>Nombre</td>
+        <td>Opciones</td>
+      </tr>
+      <tr *ngFor="let tienda of listaTiendas">
+        <td>{{ tienda.nombre }}</td>
+        <td>
+          <button (click)="editar(tienda)" class="btn-modificar"><i class="fas fa-edit"></i></button>
+          <button (click)="eliminar(tienda.$id)" class="btn-eliminar"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </table>
+  </div>

@@ -22,6 +22,10 @@ import { NuevoProductoComponent } from './components/productos/nuevo-producto/nu
 //Services
 import { ProductosService } from './services/productos.service';
 import { UserService } from './services/user.service';
+import { NuevaCategoriaComponent } from './components/categorias/nueva-categoria/nueva-categoria.component';
+import { ListarCategoriasComponent } from './components/categorias/listar-categorias/listar-categorias.component';
+import { NuevaTiendaComponent } from './components/tiendas/nueva-tienda/nueva-tienda.component';
+import { ListarTiendasComponent } from './components/tiendas/listar-tiendas/listar-tiendas.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +34,8 @@ const appRoutes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'login', component: LoginComponent },
   { path: 'nuevo-producto', component: NuevoProductoComponent },
+  { path: 'categorias', component: NuevaCategoriaComponent },
+  { path: 'tiendas', component: NuevaTiendaComponent },
   {
       path: '',
       redirectTo: '/nuevo-producto',
@@ -47,7 +53,11 @@ const appRoutes: Routes = [
     PaginaNoEncontradaComponent,
     MenuComponent,
     LoginComponent,
-    NuevoProductoComponent
+    NuevoProductoComponent,
+    NuevaCategoriaComponent,
+    ListarCategoriasComponent,
+    NuevaTiendaComponent,
+    ListarTiendasComponent
   ],
   imports: [
     BrowserModule,

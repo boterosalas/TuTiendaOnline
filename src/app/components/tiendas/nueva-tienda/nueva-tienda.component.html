@@ -1,0 +1,19 @@
+<div class="contenedor-componente-nueva-tienda">
+    <app-menu></app-menu>
+    <div class="contenido-nueva-tienda">
+        <h1 class="titulo-componente">Administrar tiendas</h1>
+      <div class="formulario-nueva-tienda">
+        <form #formTienda="ngForm" (ngSubmit)="insertarTienda(formTienda)">
+          <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="tiendasServices.nuevaTienda.$id">
+          <label>
+            Nombre:
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="tiendasServices.nuevaTienda.nombre">
+          </label>
+          <input type="submit" value="Guardar">
+        </form>
+      </div>
+      <div class="componente-listar-tiendas">
+          <app-listar-tiendas></app-listar-tiendas>
+      </div>
+    </div>
+  </div>

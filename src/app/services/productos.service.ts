@@ -19,17 +19,25 @@ export class ProductosService {
   }
 
   insertarProducto(producto: Productos) {
-    this.listaProductos.push(producto);
+    this.listaProductos.push({
+      nombre: producto.nombre,
+      categoria: producto.categoria,
+      precio: producto.precio,
+      tienda: producto.tienda
+    });
   }
 
   actualizarProducto(producto: Productos) {
-    this.listaProductos.update(producto.id, {
+    this.listaProductos.update(producto.$id, {
       nombre: producto.nombre,
+      categoria: producto.categoria,
+      precio: producto.precio,
+      tienda: producto.tienda
     })
   }
 
-  eliminarProducto(producto: Productos) {
-    this.listaProductos.remove(producto.id);
+  eliminarProducto($id: string) {
+    this.listaProductos.remove($id);
   }
 
 }

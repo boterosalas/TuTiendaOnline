@@ -1,3 +1,21 @@
-<p>
-  listar-productos works!
-</p>
+<div class="contenedor-componente-listar-productos">
+  <table class="tabla-productos" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>Nombre</td>
+      <td>Categoría</td>
+      <td>Tienda</td>
+      <td>Precio</td>
+      <td>Opciones</td>
+    </tr>
+    <tr *ngFor="let producto of listaProductos">
+      <td>{{ producto.nombre }}</td>
+      <td>{{ producto.categoria }}</td>
+      <td>{{ producto.tienda }}</td>
+      <td>{{ producto.precio }}</td>
+      <td>
+        <button (click)="editar(producto)" class="btn-modificar"><i class="fas fa-edit"></i></button>
+        <button (click)="eliminar(producto.$id)" class="btn-eliminar"><i class="fas fa-trash-alt"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>

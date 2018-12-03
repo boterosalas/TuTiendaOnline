@@ -1,0 +1,15 @@
+<div class="contenedor-componente-listar-categorias">
+    <table class="tabla-categorias">
+      <tr>
+        <td>Nombre</td>
+        <td>Opciones</td>
+      </tr>
+      <tr *ngFor="let categoria of listaCategorias">
+        <td>{{ categoria.nombre }}</td>
+        <td>
+          <button (click)="editar(categoria)" class="btn-modificar"><i class="fas fa-edit"></i></button>
+          <button (click)="eliminar(categoria.$id)" class="btn-eliminar"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </table>
+  </div>

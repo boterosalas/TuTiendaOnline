@@ -2,7 +2,40 @@
     display: flex;
     width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     app-menu{
         width: 20%;
+    }
+    .contenido-nuevo-producto{
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        padding: 20px;
+        .titulo-componente{
+            margin-bottom: 20px;
+        }
+        .formulario-nuevo-producto{
+            width: 35%;
+            form{
+                .form-group{
+                    label{
+                        display: block;
+                    }
+                    input{
+                        font-size: 17px;
+                        padding: 5px;
+                        width: 100%;
+                    }
+                    select{
+                        font-size: 17px;
+                        padding: 5px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .componente-listar-productos{
+            width: 100%;
+        }
     }
 }
