@@ -16,7 +16,6 @@
             Categoría
           </label>
           <select id="categoria" name="categoria" #categoria="ngModel" [(ngModel)]="productoServices.nuevoProducto.categoria">
-            <option value="" disabled [selected]="productoServices.nuevoProducto.categoria == 'back'">Categoría</option>
             <option value="{{ categoria.nombre }}" *ngFor="let categoria of listaCategorias">{{ categoria.nombre }}</option>
           </select>
         </div>
@@ -25,7 +24,6 @@
             Tienda
           </label>
           <select id="tienda" name="tienda" #tienda="ngModel" [(ngModel)]="productoServices.nuevoProducto.tienda">
-            <option value="" default disabled style="display:none;">Tienda</option>
             <option value="{{ tienda.nombre }}" *ngFor="let tienda of listaTiendas">{{ tienda.nombre }}</option>
           </select>
         </div>
@@ -35,8 +33,11 @@
           </label>
           <input id="precio" type="text" name="precio" #precio="ngModel" [(ngModel)]="productoServices.nuevoProducto.precio">
         </div>
-        <input type="submit" value="Guardar">
-        <button (click)="resetForm(formProducto)">Cancelar</button>
+        <div class="botonera">
+          <input *ngIf="formProducto.value.$id == null" type="submit" value="Guardar" class="btn btn-guardar">
+          <button *ngIf="formProducto.value.$id != null" (click)="insertarProducto(formProducto)" class="btn btn-actualizar">Actualizar</button>
+          <button (click)="resetForm(formProducto)" class="btn btn-cancelar">Cancelar</button>
+        </div>
       </form>
     </div>
     <div class="componente-listar-productos">

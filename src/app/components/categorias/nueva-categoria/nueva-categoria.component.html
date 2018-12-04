@@ -1,19 +1,25 @@
 <div class="contenedor-componente-nueva-categoria">
-    <app-menu></app-menu>
-    <div class="contenido-nueva-categoria">
-        <h1 class="titulo-componente">Administrar categorías</h1>
-      <div class="formulario-nueva-categoria">
-        <form #formCategoria="ngForm" (ngSubmit)="insertarCategoria(formCategoria)">
-          <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.$id">
+  <app-menu></app-menu>
+  <div class="contenido-nueva-categoria">
+    <h1 class="titulo-componente">Administrar categorías</h1>
+    <div class="formulario-nueva-categoria">
+      <form #formCategoria="ngForm" (ngSubmit)="insertarCategoria(formCategoria)">
+        <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.$id">
+        <div class="form-group">
           <label>
             Nombre:
-            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.nombre">
           </label>
-          <input type="submit" value="Guardar">
-        </form>
-      </div>
-      <div class="componente-listar-categorias">
-          <app-listar-categorias></app-listar-categorias>
-      </div>
+          <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.nombre">
+        </div>
+        <div class="botonera">
+          <input type="submit" *ngIf="formCategoria.value.$id == null" value="Guardar" class="btn btn-guardar">
+          <button *ngIf="formCategoria.value.$id != null" (click)="insertarCategoria(formCategoria)" class="btn btn-actualizar">Actualizar</button>
+          <button (click)="resetForm(formCategoria)" class="btn btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+    <div class="componente-listar-categorias">
+      <app-listar-categorias></app-listar-categorias>
     </div>
   </div>
+</div>

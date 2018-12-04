@@ -17,6 +17,34 @@
         .formulario-nuevo-producto{
             width: 35%;
             form{
+                .botonera{
+                    display: flex;
+                    justify-content: space-around;
+                    .btn{
+                        padding: 15px;
+                        border: none;
+                        margin: 4px 8px;
+                        color: #ffffff;
+                        font-size: 15px;
+                        transition: 0.1s;
+                        cursor: pointer;
+                        border-radius: 3px;
+                        &:hover{
+                            -webkit-box-shadow: 0px 0px 20px 0px #a1a1a1;
+                            -moz-box-shadow: 0px 0px 20px 0px #a1a1a1;
+                            box-shadow: 0px 0px 20px 0px #a1a1a1;
+                        }
+                        &.btn-guardar{
+                            background: #689f38;
+                        }
+                        &.btn-cancelar{
+                            background: #B71C1C;
+                        }
+                        &.btn-actualizar{
+                            background: #1565C0;
+                        }
+                    }
+                }
                 .form-group{
                     label{
                         display: block;

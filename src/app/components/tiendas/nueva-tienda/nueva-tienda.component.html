@@ -1,19 +1,25 @@
 <div class="contenedor-componente-nueva-tienda">
-    <app-menu></app-menu>
-    <div class="contenido-nueva-tienda">
-        <h1 class="titulo-componente">Administrar tiendas</h1>
-      <div class="formulario-nueva-tienda">
-        <form #formTienda="ngForm" (ngSubmit)="insertarTienda(formTienda)">
-          <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="tiendasServices.nuevaTienda.$id">
+  <app-menu></app-menu>
+  <div class="contenido-nueva-tienda">
+    <h1 class="titulo-componente">Administrar tiendas</h1>
+    <div class="formulario-nueva-tienda">
+      <form #formTienda="ngForm" (ngSubmit)="insertarTienda(formTienda)">
+        <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="tiendasServices.nuevaTienda.$id">
+        <div class="form-group">
           <label>
             Nombre:
-            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="tiendasServices.nuevaTienda.nombre">
           </label>
-          <input type="submit" value="Guardar">
-        </form>
-      </div>
-      <div class="componente-listar-tiendas">
-          <app-listar-tiendas></app-listar-tiendas>
-      </div>
+          <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="tiendasServices.nuevaTienda.nombre">
+        </div>
+        <div class="botonera">
+          <input type="submit" value="Guardar" *ngIf="formTienda.value.$id == null" class="btn btn-guardar">
+          <button *ngIf="formTienda.value.$id != null" (click)="insertarTienda(formTienda)" class="btn btn-actualizar">Actualizar</button>
+          <button (click)="resetForm(formTienda)" class="btn btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+    <div class="componente-listar-tiendas">
+      <app-listar-tiendas></app-listar-tiendas>
     </div>
   </div>
+</div>

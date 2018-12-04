@@ -4,138 +4,26 @@
     <h1 class="titulo-general-tienda">Tu tienda Online</h1>
     <div class="categorias">
       <ul>
-        <li (click)="activo(1)" [ngClass]="{'li-activo':bandera==1}">Moda</li>
-        <li (click)="activo(2)" [ngClass]="{'li-activo':bandera==2}">Tecnología</li>
-        <li (click)="activo(3)" [ngClass]="{'li-activo':bandera==3}">Viajes</li>
-        <li (click)="activo(4)" [ngClass]="{'li-activo':bandera==4}">Vehículos</li>
+        <li *ngFor="let categoria of listaCategorias;let i = index;" (click)="activo(categoria.nombre)" [ngClass]="{'li-activo':bandera==categoria.nombre}">{{categoria.nombre}}</li>
       </ul>
     </div>
     <div class="muestreo-productos">
-      <div class="categoria-producto" *ngIf="bandera==1">
-        <div class="padre-producto">
-          <p class="nombre-producto">Jean Dama</p>
-          <div class="imagen-producto" id="jean-dama" (click)="onSelect(1)">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion">
-            <div class="nombre-tienda">Rifle</div>
-            <div class="precio-compra">
-              <div class="precio">$70.000</div>
-              <div class="compra">Comprar</div>
+      <div class="categoria-producto">
+        <div *ngFor="let producto of listaProductosCategoria;let i = index;">
+          <div class="padre-producto" *ngIf="producto.categoria==bandera">
+            <p class="nombre-producto">{{producto.nombre}}</p>
+            <div class="imagen-producto" (click)="onSelect(i)">
+              <div class="padre-plus"></div>
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <div class="contenido-descripcion">
+              <div class="nombre-tienda">{{producto.tienda}}</div>
+              <div class="precio-compra">
+                <div class="precio">${{producto.precio}}</div>
+                <div class="compra">Comprar</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-      </div>
-      <div class="categoria-producto" *ngIf="bandera==2">
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-      </div>
-      <div class="categoria-producto" *ngIf="bandera==3">
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-      </div>
-      <div class="categoria-producto" *ngIf="bandera==4">
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
-        </div>
-        <div class="padre-producto">
-          <div class="imagen-producto">
-            <div class="padre-plus"></div>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div class="contenido-descripcion"></div>
         </div>
       </div>
     </div>
