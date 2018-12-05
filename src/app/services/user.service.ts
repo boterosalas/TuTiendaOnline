@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { User } from '../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import 'rxjs/add/operator/map';
 
 
 @Injectable({
