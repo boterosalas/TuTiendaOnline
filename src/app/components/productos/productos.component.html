@@ -1,11 +1,13 @@
 <div class="contenedor-componente-productos">
   <app-menu></app-menu>
   <div class="contenedor-principal-productos">
-    <h1 class="titulo-general-tienda">Tu tienda Online</h1>
-    <div class="categorias">
-      <ul>
-        <li *ngFor="let categoria of listaCategorias;let i = index;" (click)="activo(categoria.nombre)" [ngClass]="{'li-activo':bandera==categoria.nombre}">{{categoria.nombre}}</li>
-      </ul>
+    <div class="cabecera">
+      <h1 class="titulo-general-tienda">Tu tienda Online</h1>
+      <div class="categorias">
+        <ul>
+          <li *ngFor="let categoria of listaCategorias;let i = index;" (click)="activo(categoria.nombre)" [ngClass]="{'li-activo':bandera==categoria.nombre}">{{categoria.nombre}}</li>
+        </ul>
+      </div>
     </div>
     <div class="muestreo-productos">
       <div class="categoria-producto">
