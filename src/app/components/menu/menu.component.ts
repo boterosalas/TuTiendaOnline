@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+
+  public isLogin: boolean;
+  public nombreUser: string;
+  public email: string;
+  public usuario: User[];
+
+  constructor(
+    public userService: UserService,
+  ) { }
 
   ngOnInit() {
+    this.userService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.userService.conseguirUsuarios().
+          snapshotChanges()
+          .subscribe(item => {
+            this.usuario = [];
+            item.forEach(element => {
+              let x = element.payload.toJSON();
+              x["$id"] = element.key;
+              if (x["email"] == auth.email) {
+                this.usuario.push(x as User);
+                console.log(x);
+              }
+              console.log("emails",auth.email)
+            })
+          })
+          this.isLogin=true;
+      }
+      else {
+        this.isLogin = false;
+      }
+    })
+  }
+
+  logOut() {
+    this.userService.logOut();
   }
 
 }

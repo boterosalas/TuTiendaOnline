@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,13 @@ import { User } from '../../models/user';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
+    private firebase: AngularFireDatabase,
+    public router: Router
   ) { }
 
-  nombre;
+  usuarioLogueado: User[];
+  usuario: User = new User;
 
   ngOnInit() {
     this.userService.conseguirUsuarios();
@@ -29,13 +34,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm: NgForm) {
-    console.log(loginForm.value);
-    if (loginForm.value.id == null)
-      this.userService.insertarUsuario(loginForm.value);
-    else
-      this.userService.actualizarUsuario(loginForm.value);
+    this.userService.logIn(loginForm.value)
+      .then((res) => {
+        console.log("response",res);
+        this.router.navigate(['/productos']);
+      }).catch((err) => {
+        console.log(err);
+      });
 
-    this.resetForm(loginForm);
+      /* this.userService.registrarUsuario(loginForm.value);
+      console.log(loginForm.value); */
   }
 
 }

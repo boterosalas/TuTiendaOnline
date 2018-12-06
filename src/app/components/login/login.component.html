@@ -2,9 +2,9 @@
   <h1>Tu tienda online</h1>
   <form #loginForm="ngForm" class="formulario-principal" (ngSubmit)="onSubmit(loginForm)">
     <div class="form-group">
-      <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" name="usuario" #nombre="ngModel" [(ngModel)]="userService.nuevoUsuario.nombre">
-    </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="userService.nuevoUsuario.email">
+      </div>
     <div class="form-group">
       <label for="password">Contraseña</label>
       <input type="text" id="password" name="password" #password="ngModel" [(ngModel)]="userService.nuevoUsuario.password">
@@ -14,4 +14,5 @@
       <input type="submit" class="btn btn-aceptar" value="Aceptar">
     </div>
   </form>
+  <p [routerLink]="['/productos']" style="cursor:pointer;">Ingresar sin iniciar sesión</p>
 </div>

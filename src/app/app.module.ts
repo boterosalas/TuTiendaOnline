@@ -4,9 +4,11 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 //FireBase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from '../environments/environment';
 //Rutas
 import { RouterModule, Routes } from '@angular/router';
@@ -18,14 +20,14 @@ import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/p
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
 import { NuevoProductoComponent } from './components/productos/nuevo-producto/nuevo-producto.component';
-
-//Services
-import { ProductosService } from './services/productos.service';
-import { UserService } from './services/user.service';
 import { NuevaCategoriaComponent } from './components/categorias/nueva-categoria/nueva-categoria.component';
 import { ListarCategoriasComponent } from './components/categorias/listar-categorias/listar-categorias.component';
 import { NuevaTiendaComponent } from './components/tiendas/nueva-tienda/nueva-tienda.component';
 import { ListarTiendasComponent } from './components/tiendas/listar-tiendas/listar-tiendas.component';
+
+//Services
+import { ProductosService } from './services/productos.service';
+import { UserService } from './services/user.service';
 
 
 const appRoutes: Routes = [
@@ -57,7 +59,7 @@ const appRoutes: Routes = [
     NuevaCategoriaComponent,
     ListarCategoriasComponent,
     NuevaTiendaComponent,
-    ListarTiendasComponent
+    ListarTiendasComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ const appRoutes: Routes = [
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [
     ProductosService,

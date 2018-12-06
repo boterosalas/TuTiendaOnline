@@ -11,8 +11,8 @@ import 'rxjs/add/operator/map';
 })
 export class UserService {
 
-  listaUsuarios: AngularFireList<any>;
-  nuevoUsuario: User = new User();
+  public listaUsuarios: AngularFireList<any>;
+  public nuevoUsuario: User = new User();
 
 
 
@@ -27,7 +27,7 @@ export class UserService {
 
   logIn(user:User){
     return new Promise((resolve,reject)=>{
-      this.afAuth.auth.signInWithEmailAndPassword(user.correo,user.password)
+      this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password)
       .then( userData => resolve(userData),
       err => reject(err));
     });
@@ -43,8 +43,15 @@ export class UserService {
     return this.listaUsuarios = this.firebase.list('usuarios');
   }
 
-  insertarUsuario(user: User) {
-    this.listaUsuarios.push(user);
+  registrarUsuario(user:User){
+    return new Promise((resolve,reject)=>{
+      this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password)
+      .then( userData => {
+        console.log(userData)
+        this.listaUsuarios.push(user);
+      },
+      err => console.log(err));
+    });
   }
 
   actualizarUsuario(user: User) {
@@ -53,7 +60,7 @@ export class UserService {
       password: user.password,
       telefono: user.telefono,
       fechaNacimiento: user.fechaNacimiento,
-      correo: user.correo,
+      correo: user.email,
       direccion: user.direccion,
       ciudad: user.ciudad,
       cedula: user.cedula,
