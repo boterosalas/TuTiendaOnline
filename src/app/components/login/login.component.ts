@@ -24,6 +24,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.userService.conseguirUsuarios();
     this.resetForm();
+    this.verifySesion();
+  }
+
+  private verifySesion(){
+    this.userService.getAuth().subscribe( auth =>{
+      if(auth){
+        this.userService.loadSesion(auth);
+        this.router.navigate(['/productos']);
+      }
+    })
   }
 
   resetForm(loginForm?: NgForm) {
@@ -36,14 +46,16 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm: NgForm) {
     this.userService.logIn(loginForm.value)
       .then((res) => {
-        console.log("response",res);
+        console.log("response",res.user);
+        this.userService.usuarioFire = res.user;
+        this.userService.usuarioLogueado = loginForm.value;
         this.router.navigate(['/productos']);
       }).catch((err) => {
         console.log(err);
       });
 
-      /* this.userService.registrarUsuario(loginForm.value);
-      console.log(loginForm.value); */
+    /* this.userService.registrarUsuario(loginForm.value);
+    console.log(loginForm.value); */
   }
 
 }

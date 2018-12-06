@@ -1,4 +1,4 @@
 export class Tienda {
-    $id?: string;
+    id?: string;
     nombre: string;
 }

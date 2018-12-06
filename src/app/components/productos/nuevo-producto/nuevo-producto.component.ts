@@ -27,7 +27,7 @@ export class NuevoProductoComponent implements OnInit {
 
   insertarProducto(formProducto: NgForm) {
     console.log(formProducto.value);
-    if (formProducto.value.$id == null) {
+    if (formProducto.value.id == null) {
       this.productoServices.insertarProducto(formProducto.value);
     } else {
       this.productoServices.actualizarProducto(formProducto.value);
@@ -51,7 +51,7 @@ export class NuevoProductoComponent implements OnInit {
         this.listaCategorias = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaCategorias.push(x as Categoria);
         })
       })
@@ -62,7 +62,7 @@ export class NuevoProductoComponent implements OnInit {
         this.listaTiendas = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaTiendas.push(x as Tienda);
         })
       })

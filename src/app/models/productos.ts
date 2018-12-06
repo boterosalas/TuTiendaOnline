@@ -1,5 +1,5 @@
 export class Productos {
-    $id?: string;
+    id?: string;
     nombre?: string;
     categoria?: string;
     imagen?: string;

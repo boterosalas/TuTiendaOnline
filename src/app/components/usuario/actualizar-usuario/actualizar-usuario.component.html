@@ -1,0 +1,50 @@
+<div class="contenedor-componente-actualizar-usuario">
+  <app-menu></app-menu>
+  <div class="contenedor-principal-actualizar-usuario">
+    <div class="cabecera">
+
+    </div>
+    <div class="formulario-actualizar-usuario">
+      <form #formActualizarUsuario="ngForm" (ngSubmit)="actualizarUsuario(formActualizarUsuario)">
+        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userService.usuarioLogueado.id">
+        <div class="form-group">
+          <label for="nombre">
+            Nombre:
+          </label>
+          <input id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="userService.usuarioLogueado.nombre">
+        </div>
+        <div class="form-group">
+          <label for="password">
+            Contraseña:
+          </label>
+          <input id="password" type="text" name="password" #password="ngModel" [(ngModel)]="userService.usuarioLogueado.password">
+        </div>
+        <div class="form-group">
+          <label for="fechaNacimiento">
+            Fecha de nacimiento:
+          </label>
+          <input id="fechaNacimiento" type="text" name="fechaNacimiento" #fechaNacimiento="ngModel" [(ngModel)]="userService.usuarioLogueado.fechaNacimiento">
+        </div>
+        <div class="form-group">
+          <label for="ciudad">
+            Ciudad:
+          </label>
+          <input id="ciudad" type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="userService.usuarioLogueado.ciudad">
+        </div>
+        <div class="form-group">
+          <label for="genero">
+            Género:
+          </label>
+          <select name="genero" id="genero" #genero="ngModel" [(ngModel)]="userService.usuarioLogueado.genero">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+        <div class="botonera">
+          <button type="submit" class="btn btn-actualizar">Actualizar</button>
+          <button (click)="resetForm(formActualizarUsuario)" class="btn btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

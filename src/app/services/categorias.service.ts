@@ -23,13 +23,13 @@ export class CategoriasService {
   }
 
   actualizarCategoria(categoria: Categoria) {
-    this.listaCategorias.update(categoria.$id, {
+    this.listaCategorias.update(categoria.id, {
       nombre: categoria.nombre,
     })
   }
 
-  eliminarCategoria($id: string) {
-    this.listaCategorias.remove($id);
+  eliminarCategoria(id: string) {
+    this.listaCategorias.remove(id);
   }
 
 }

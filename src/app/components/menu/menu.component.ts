@@ -22,18 +22,20 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.userService.getAuth().subscribe(auth => {
       if (auth) {
+        this.userService.loadSesion(auth);
+  
         this.userService.conseguirUsuarios().
           snapshotChanges()
           .subscribe(item => {
             this.usuario = [];
             item.forEach(element => {
               let x = element.payload.toJSON();
-              x["$id"] = element.key;
+              x["id"] = element.key;
               if (x["email"] == auth.email) {
                 this.usuario.push(x as User);
-                console.log(x);
+                this.userService.usuarioLogueado = x;
+                console.log("X",x);
               }
-              console.log("emails",auth.email)
             })
           })
           this.isLogin=true;

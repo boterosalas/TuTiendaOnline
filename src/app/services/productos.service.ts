@@ -28,7 +28,7 @@ export class ProductosService {
   }
 
   actualizarProducto(producto: Productos) {
-    this.listaProductos.update(producto.$id, {
+    this.listaProductos.update(producto.id, {
       nombre: producto.nombre,
       categoria: producto.categoria,
       precio: producto.precio,
@@ -36,8 +36,8 @@ export class ProductosService {
     })
   }
 
-  eliminarProducto($id: string) {
-    this.listaProductos.remove($id);
+  eliminarProducto(id: string) {
+    this.listaProductos.remove(id);
   }
 
 }

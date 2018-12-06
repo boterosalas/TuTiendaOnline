@@ -22,7 +22,7 @@ export class ListarTiendasComponent implements OnInit {
         this.listaTiendas = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaTiendas.push(x as Tienda);
         })
       })
@@ -32,8 +32,8 @@ export class ListarTiendasComponent implements OnInit {
     this.tiendaService.nuevaTienda = Object.assign({}, categoria);
   }
 
-  eliminar($id: string) {
-    this.tiendaService.eliminarTienda($id);
+  eliminar(id: string) {
+    this.tiendaService.eliminarTienda(id);
   }
 
 }

@@ -22,7 +22,7 @@ export class ListarCategoriasComponent implements OnInit {
         this.listaCategorias = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaCategorias.push(x as Categoria);
         })
       })
@@ -32,8 +32,8 @@ export class ListarCategoriasComponent implements OnInit {
     this.categoriasService.nuevaCategoria = Object.assign({}, categoria);
   }
 
-  eliminar($id: string) {
-    this.categoriasService.eliminarCategoria($id);
+  eliminar(id: string) {
+    this.categoriasService.eliminarCategoria(id);
   }
 
 }

@@ -18,7 +18,7 @@ export class NuevaTiendaComponent implements OnInit {
 
   insertarTienda(formTienda: NgForm) {
     console.log(formTienda.value);
-    if (formTienda.value.$id == null) {
+    if (formTienda.value.id == null) {
       this.tiendasServices.insertarTienda(formTienda.value);
     }else{
       this.tiendasServices.actualizarTienda(formTienda.value);

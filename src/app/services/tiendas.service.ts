@@ -23,13 +23,13 @@ export class TiendasService {
   }
 
   actualizarTienda(tienda: Tienda) {
-    this.listaTiendas.update(tienda.$id, {
+    this.listaTiendas.update(tienda.id, {
       nombre: tienda.nombre,
     })
   }
 
-  eliminarTienda($id: string) {
-    this.listaTiendas.remove($id);
+  eliminarTienda(id: string) {
+    this.listaTiendas.remove(id);
   }
 
 }

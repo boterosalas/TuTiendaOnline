@@ -4,7 +4,7 @@
     <h1 class="titulo-componente">Administrar productos</h1>
     <div class="formulario-nuevo-producto">
       <form #formProducto="ngForm" (ngSubmit)="insertarProducto(formProducto)">
-        <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="productoServices.nuevoProducto.$id">
+        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="productoServices.nuevoProducto.id">
         <div class="form-group">
           <label for="nombre">
             Nombre:
@@ -34,8 +34,8 @@
           <input id="precio" type="text" name="precio" #precio="ngModel" [(ngModel)]="productoServices.nuevoProducto.precio">
         </div>
         <div class="botonera">
-          <input *ngIf="formProducto.value.$id == null" type="submit" value="Guardar" class="btn btn-guardar">
-          <button *ngIf="formProducto.value.$id != null" (click)="insertarProducto(formProducto)" class="btn btn-actualizar">Actualizar</button>
+          <input *ngIf="formProducto.value.id == null" type="submit" value="Guardar" class="btn btn-guardar">
+          <button *ngIf="formProducto.value.id != null" (click)="insertarProducto(formProducto)" class="btn btn-actualizar">Actualizar</button>
           <button (click)="resetForm(formProducto)" class="btn btn-cancelar">Cancelar</button>
         </div>
       </form>

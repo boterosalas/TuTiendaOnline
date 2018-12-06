@@ -24,6 +24,8 @@ import { NuevaCategoriaComponent } from './components/categorias/nueva-categoria
 import { ListarCategoriasComponent } from './components/categorias/listar-categorias/listar-categorias.component';
 import { NuevaTiendaComponent } from './components/tiendas/nueva-tienda/nueva-tienda.component';
 import { ListarTiendasComponent } from './components/tiendas/listar-tiendas/listar-tiendas.component';
+import { RegistroUsuarioComponent } from './components/usuario/registro-usuario/registro-usuario.component';
+import { ActualizarUsuarioComponent } from './components/usuario/actualizar-usuario/actualizar-usuario.component';
 
 //Services
 import { ProductosService } from './services/productos.service';
@@ -38,6 +40,8 @@ const appRoutes: Routes = [
   { path: 'nuevo-producto', component: NuevoProductoComponent },
   { path: 'categorias', component: NuevaCategoriaComponent },
   { path: 'tiendas', component: NuevaTiendaComponent },
+  { path: 'registro', component: RegistroUsuarioComponent },
+  { path: 'actualizar-perfil', component: ActualizarUsuarioComponent },
   {
       path: '',
       redirectTo: '/nuevo-producto',
@@ -60,6 +64,8 @@ const appRoutes: Routes = [
     ListarCategoriasComponent,
     NuevaTiendaComponent,
     ListarTiendasComponent,
+    RegistroUsuarioComponent,
+    ActualizarUsuarioComponent,
   ],
   imports: [
     BrowserModule,

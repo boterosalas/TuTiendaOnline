@@ -4,7 +4,7 @@
     <h1 class="titulo-componente">Administrar categorías</h1>
     <div class="formulario-nueva-categoria">
       <form #formCategoria="ngForm" (ngSubmit)="insertarCategoria(formCategoria)">
-        <input type="hidden" name="$id" #$id="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.$id">
+        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.id">
         <div class="form-group">
           <label>
             Nombre:
@@ -12,8 +12,8 @@
           <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="categoriasServices.nuevaCategoria.nombre">
         </div>
         <div class="botonera">
-          <input type="submit" *ngIf="formCategoria.value.$id == null" value="Guardar" class="btn btn-guardar">
-          <button *ngIf="formCategoria.value.$id != null" (click)="insertarCategoria(formCategoria)" class="btn btn-actualizar">Actualizar</button>
+          <input type="submit" *ngIf="formCategoria.value.id == null" value="Guardar" class="btn btn-guardar">
+          <button *ngIf="formCategoria.value.id != null" (click)="insertarCategoria(formCategoria)" class="btn btn-actualizar">Actualizar</button>
           <button (click)="resetForm(formCategoria)" class="btn btn-cancelar">Cancelar</button>
         </div>
       </form>

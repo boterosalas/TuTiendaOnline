@@ -18,7 +18,7 @@ export class NuevaCategoriaComponent implements OnInit {
 
   insertarCategoria(formCategoria: NgForm) {
     console.log(formCategoria.value);
-    if (formCategoria.value.$id == null) {
+    if (formCategoria.value.id == null) {
       this.categoriasServices.insertarCategoria(formCategoria.value);
     }else{
       this.categoriasServices.actualizarCategoria(formCategoria.value);

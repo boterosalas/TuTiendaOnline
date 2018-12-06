@@ -29,7 +29,7 @@ export class ProductosComponent implements OnInit {
         this.listaCategorias = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaCategorias.push(x as Categoria);
         })
         this.bandera = this.listaCategorias[0].nombre;
@@ -39,7 +39,7 @@ export class ProductosComponent implements OnInit {
             this.listaProductosCategoria = [];
             item.forEach(element => {
               let x = element.payload.toJSON();
-              x["$id"] = element.key;
+              x["id"] = element.key;
               if (x["categoria"] == this.bandera) {
                 this.listaProductosCategoria.push(x as Productos);
               }
@@ -53,7 +53,7 @@ export class ProductosComponent implements OnInit {
         this.listaProductos = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaProductos.push(x as Productos);
         })
       })
@@ -72,7 +72,7 @@ export class ProductosComponent implements OnInit {
         this.listaProductosCategoria = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           if (x["categoria"] == i) {
             this.listaProductosCategoria.push(x as Productos);
           }

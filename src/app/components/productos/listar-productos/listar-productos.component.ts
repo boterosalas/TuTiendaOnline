@@ -23,7 +23,7 @@ export class ListarProductosComponent implements OnInit {
         this.listaProductos = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$id"] = element.key;
+          x["id"] = element.key;
           this.listaProductos.push(x as Productos);
         })
       })
@@ -33,8 +33,8 @@ export class ListarProductosComponent implements OnInit {
     this.productoServices.nuevoProducto = Object.assign({}, producto);
   }
 
-  eliminar($id: string) {
-    this.productoServices.eliminarProducto($id);
+  eliminar(id: string) {
+    this.productoServices.eliminarProducto(id);
   }
 
 }
