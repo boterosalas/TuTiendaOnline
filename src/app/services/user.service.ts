@@ -16,7 +16,7 @@ export class UserService {
   public listaUsuarios: AngularFireList<any>;
   public nuevoUsuario: User = new User();
   public usuarioLogueado: User = new User();
-  public usuarioFire:firebase.User
+  public usuarioFire: firebase.User
 
 
   constructor(
@@ -33,17 +33,17 @@ export class UserService {
       this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
         .then(userData => {
           resolve(userData);
-          this.usuarioFire=this.afAuth.auth.currentUser
+          this.usuarioFire = this.afAuth.auth.currentUser
         },
           err => reject(err));
     });
   }
 
-  getAuth():Observable<firebase.User> {
+  getAuth(): Observable<firebase.User> {
     return this.afAuth.authState
   }
 
-  loadSesion( user:firebase.User){
+  loadSesion(user: firebase.User) {
     this.usuarioFire = user;
   }
 
@@ -64,26 +64,23 @@ export class UserService {
     });
   }
 
-  async actualizarUsuario(password:string) {
-    await this.usuarioFire.updatePassword(password);
-    return new Promise((resolve,reject)=>{
+  actualizarUsuario(user: User) {
+    this.usuarioFire.updatePassword(user.password);
+    return new Promise((resolve, reject) => {
       console.log('usuarioFire', this.usuarioFire);
       this.afAuth.auth.updateCurrentUser(this.usuarioFire)
-      .then( userData => {
-        resolve({userData})
-        //this.listaUsuarios.push(user);
-    },
-    err => reject(err));
-  });
-  //------------------------------------------------------
-  /* console.log(user)
-  this.listaUsuarios.update(user.id, {
-    nombre: user.nombre,
-    password: user.password,
-    fechaNacimiento: user.fechaNacimiento,
-    ciudad: user.ciudad,
-    genero: user.genero,
-  }) */
+        .then(userData => {
+          resolve({ userData });
+          this.listaUsuarios.update(user.id, {
+            nombre: user.nombre,
+            password: user.password,
+            fechaNacimiento: user.fechaNacimiento,
+            ciudad: user.ciudad,
+            genero: user.genero,
+          })
+        },
+          err => reject(err));
+    });
   }
 
   eliminarUsuario(user: User) {

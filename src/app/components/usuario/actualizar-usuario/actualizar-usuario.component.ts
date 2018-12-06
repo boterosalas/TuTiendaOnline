@@ -18,8 +18,7 @@ export class ActualizarUsuarioComponent implements OnInit {
   }
 
   actualizarUsuario(formActualizarUsuario?: NgForm){
-    console.log('contraseña', formActualizarUsuario.value.password);
-    this.userService.actualizarUsuario(formActualizarUsuario.value.password);
+    this.userService.actualizarUsuario(formActualizarUsuario.value);
   }
 
   resetForm(formActualizarUsuario?: NgForm) {

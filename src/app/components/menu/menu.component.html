@@ -4,7 +4,7 @@
     <p><a [routerLink]="['/categorias']">Categorías</a></p>
     <p><a [routerLink]="['/nuevo-producto']">Nuevo Producto</a></p>
     <p><a [routerLink]="['/registro']">Registro</a></p>
-    <p><a [routerLink]="['/actualizar-perfil']">Actualizar perfil</a></p>
+    <p><a [routerLink]="['/actualizar-perfil']" *ngIf="isLogin">Actualizar perfil</a></p>
     <p><a [routerLink]="['/login']" *ngIf="!isLogin">Iniciar sesión</a></p>
     <p><a [routerLink]="['/login']" (click)="logOut()" *ngIf="isLogin">Salir</a></p>
     <p></p>

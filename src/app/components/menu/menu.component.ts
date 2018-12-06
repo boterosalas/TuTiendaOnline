@@ -23,7 +23,6 @@ export class MenuComponent implements OnInit {
     this.userService.getAuth().subscribe(auth => {
       if (auth) {
         this.userService.loadSesion(auth);
-  
         this.userService.conseguirUsuarios().
           snapshotChanges()
           .subscribe(item => {
