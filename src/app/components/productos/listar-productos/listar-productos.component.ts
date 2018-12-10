@@ -11,7 +11,7 @@ import { element } from '@angular/core/src/render3/instructions';
 export class ListarProductosComponent implements OnInit {
 
   constructor(
-    private productoServices: ProductosService,
+    public productoServices: ProductosService,
   ) { }
 
   listaProductos: Productos[];

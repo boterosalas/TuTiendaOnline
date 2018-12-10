@@ -10,7 +10,7 @@ export class ProductoUnicoComponent implements OnInit {
 
   public productoId;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute) { }
 
   ngOnInit() {
     let producto = parseInt(this.route.snapshot.paramMap.get('producto'));

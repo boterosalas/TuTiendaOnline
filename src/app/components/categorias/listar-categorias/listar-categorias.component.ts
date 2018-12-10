@@ -10,7 +10,7 @@ import { Categoria } from '../../../models/categoria';
 export class ListarCategoriasComponent implements OnInit {
 
   constructor(
-    private categoriasService: CategoriasService,
+    public categoriasService: CategoriasService,
   ) { }
 
   listaCategorias: Categoria[];

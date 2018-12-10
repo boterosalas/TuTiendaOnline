@@ -4,14 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyCB1TsKTNo7whAG-WZ3wErwMcezM2PC5Is",
-    authDomain: "fabrica-de-clientes.firebaseapp.com",
-    databaseURL: "https://fabrica-de-clientes.firebaseio.com",
-    projectId: "fabrica-de-clientes",
-    storageBucket: "fabrica-de-clientes.appspot.com",
-    messagingSenderId: "648942701779"
-  }
+  
 };
 
 /*

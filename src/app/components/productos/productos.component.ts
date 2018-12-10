@@ -18,9 +18,9 @@ export class ProductosComponent implements OnInit {
   listaProductosCategoria: any[];
 
   constructor(
-    private router: Router,
-    private categoriasServices: CategoriasService,
-    private productosService: ProductosService) { }
+    public router: Router,
+    public categoriasServices: CategoriasService,
+    public productosService: ProductosService) { }
 
   ngOnInit() {
     this.categoriasServices.conseguirCategorias().

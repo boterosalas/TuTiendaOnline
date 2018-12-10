@@ -31,6 +31,15 @@ import { ActualizarUsuarioComponent } from './components/usuario/actualizar-usua
 import { ProductosService } from './services/productos.service';
 import { UserService } from './services/user.service';
 
+export const firebase = {
+  apiKey: "AIzaSyCB1TsKTNo7whAG-WZ3wErwMcezM2PC5Is",
+  authDomain: "fabrica-de-clientes.firebaseapp.com",
+  databaseURL: "https://fabrica-de-clientes.firebaseio.com",
+  projectId: "fabrica-de-clientes",
+  storageBucket: "fabrica-de-clientes.appspot.com",
+  messagingSenderId: "648942701779"
+}
+
 
 const appRoutes: Routes = [
   { path: 'productos', component: ProductosComponent },
@@ -69,7 +78,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
     RouterModule.forRoot(
       appRoutes,

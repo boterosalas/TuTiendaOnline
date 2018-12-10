@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class NuevaTiendaComponent implements OnInit {
 
   constructor(
-    private tiendasServices: TiendasService,
+    public tiendasServices: TiendasService,
   ) { }
 
   listaTiendas: Tienda[];

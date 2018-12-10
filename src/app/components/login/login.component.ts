@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private firebase: AngularFireDatabase,
+    public firebase: AngularFireDatabase,
     public router: Router
   ) { }
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.verifySesion();
   }
 
-  private verifySesion(){
+  public verifySesion(){
     this.userService.getAuth().subscribe( auth =>{
       if(auth){
         this.userService.loadSesion(auth);
@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm: NgForm) {
     this.userService.logIn(loginForm.value)
       .then((res) => {
-        console.log("response",res.user);
-        this.userService.usuarioFire = res.user;
+        console.log("response",res['user']);
+        this.userService.usuarioFire = res['user'];
         this.userService.usuarioLogueado = loginForm.value;
         this.router.navigate(['/productos']);
       }).catch((err) => {

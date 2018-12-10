@@ -16,9 +16,9 @@ import { Categoria } from 'src/app/models/categoria';
 export class NuevoProductoComponent implements OnInit {
 
   constructor(
-    private productoServices: ProductosService,
-    private categoriasServices: CategoriasService,
-    private tiendasServices: TiendasService,
+    public productoServices: ProductosService,
+    public categoriasServices: CategoriasService,
+    public tiendasServices: TiendasService,
   ) { }
 
   listaProductos: Productos[];

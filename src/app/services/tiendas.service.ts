@@ -10,7 +10,7 @@ export class TiendasService {
   listaTiendas: AngularFireList<any>;
   nuevaTienda: Tienda = new Tienda();
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(public firebase: AngularFireDatabase) { }
 
   conseguirTiendas() {
     return this.listaTiendas = this.firebase.list('tiendas');

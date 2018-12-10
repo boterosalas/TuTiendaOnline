@@ -11,7 +11,7 @@ import { Categoria } from '../../../models/categoria';
 export class NuevaCategoriaComponent implements OnInit {
 
   constructor(
-    private categoriasServices: CategoriasService,
+    public categoriasServices: CategoriasService,
   ) { }
 
   listaCategorias: Categoria[];

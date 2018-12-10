@@ -10,7 +10,7 @@ export class CategoriasService {
   listaCategorias: AngularFireList<any>;
   nuevaCategoria: Categoria = new Categoria();
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(public firebase: AngularFireDatabase) { }
 
   conseguirCategorias() {
     return this.listaCategorias = this.firebase.list('categorias');

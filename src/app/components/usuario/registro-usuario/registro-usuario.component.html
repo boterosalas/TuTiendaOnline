@@ -1,8 +1,50 @@
 <div class="contenedor-componente-registro-usuario">
   <app-menu></app-menu>
   <div class="contenedor-principal-registro-usuario">
-    <div class="cabecera">
-
+    <div class="cabecera"></div>
+    <div class="formulario-registro-usuario">
+      <form #formUsuarioNuevo="ngForm" (ngSubmit)="registrarUsuario(formUsuarioNuevo)">
+        <div class="form-group">
+          <label>
+            Nombre:
+          </label>
+          <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="userService.nuevoUsuario.nombre">
+        </div>
+        <div class="form-group">
+          <label>
+            Correo:
+          </label>
+          <input type="text" name="email" #email="ngModel" [(ngModel)]="userService.nuevoUsuario.email">
+        </div>
+        <div class="form-group">
+          <label>
+            Contraseña:
+          </label>
+          <input type="text" name="password" #password="ngModel" [(ngModel)]="userService.nuevoUsuario.password">
+        </div>
+        <div class="form-group">
+          <label>
+            Fecha de Nacimiento:
+          </label>
+          <input type="text" name="fechaNacimiento" #fechaNacimiento="ngModel" [(ngModel)]="userService.nuevoUsuario.fechaNacimiento">
+        </div>
+        <div class="form-group">
+          <label>
+            Ciudad:
+          </label>
+          <input type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="userService.nuevoUsuario.ciudad">
+        </div>
+        <div class="form-group">
+          <label>
+            Género:
+          </label>
+          <input type="text" name="genero" #genero="ngModel" [(ngModel)]="userService.nuevoUsuario.genero">
+        </div>
+        <div class="botonera">
+          <input type="submit" value="Guardar" class="btn btn-guardar">
+          <button (click)="resetForm(formUsuarioNuevo)" class="btn btn-cancelar">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

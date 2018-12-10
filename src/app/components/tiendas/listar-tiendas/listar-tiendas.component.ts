@@ -10,7 +10,7 @@ import { Tienda } from '../../../models/tienda';
 export class ListarTiendasComponent implements OnInit {
 
   constructor(
-    private tiendaService: TiendasService,
+    public tiendaService: TiendasService,
   ) { }
 
   listaTiendas: Tienda[];

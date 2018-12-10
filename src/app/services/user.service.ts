@@ -20,7 +20,7 @@ export class UserService {
 
 
   constructor(
-    private firebase: AngularFireDatabase,
+    public firebase: AngularFireDatabase,
     public afAuth: AngularFireAuth
   ) { }
 
