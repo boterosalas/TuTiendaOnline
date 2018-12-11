@@ -30,6 +30,7 @@ import { ActualizarUsuarioComponent } from './components/usuario/actualizar-usua
 //Services
 import { ProductosService } from './services/productos.service';
 import { UserService } from './services/user.service';
+import { ListarUsuariosComponent } from './components/usuario/listar-usuarios/listar-usuarios.component';
 
 export const firebase = {
   apiKey: "AIzaSyCB1TsKTNo7whAG-WZ3wErwMcezM2PC5Is",
@@ -53,7 +54,7 @@ const appRoutes: Routes = [
   { path: 'actualizar-perfil', component: ActualizarUsuarioComponent },
   {
       path: '',
-      redirectTo: '/nuevo-producto',
+      redirectTo: '/productos',
       pathMatch: 'full'
   },
   { path: '**', component: PaginaNoEncontradaComponent }
@@ -75,6 +76,7 @@ const appRoutes: Routes = [
     ListarTiendasComponent,
     RegistroUsuarioComponent,
     ActualizarUsuarioComponent,
+    ListarUsuariosComponent,
   ],
   imports: [
     BrowserModule,

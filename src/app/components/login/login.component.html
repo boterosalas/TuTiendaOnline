@@ -3,11 +3,11 @@
   <form #loginForm="ngForm" class="formulario-principal" (ngSubmit)="onSubmit(loginForm)">
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="userService.nuevoUsuario.email">
+        <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="userService.usuarioLogueado.email">
       </div>
     <div class="form-group">
       <label for="password">Contraseña</label>
-      <input type="text" id="password" name="password" #password="ngModel" [(ngModel)]="userService.nuevoUsuario.password">
+      <input type="text" id="password" name="password" #password="ngModel" [(ngModel)]="userService.usuarioLogueado.password">
     </div>
     <div class="form-group botonera">
         <button class="btn btn-cancelar" type="reset" (click)="resetForm(loginForm)">Cancelar</button>

@@ -1,0 +1,38 @@
+.contenedor-componente-listar-usuarios{
+    display: flex;
+    width:100%;
+    flex-wrap: wrap;
+    .tabla-usuarios{
+        width: 100%;
+        border: 1px solid #ef5350;
+        border-collapse: collapse;
+        tr:nth-child(1){
+            td{
+                background: #ef5350;
+            }
+        }
+        tr:nth-child(odd){
+            background: rgba(239, 83, 80, 0.671);
+        }
+        tr{
+            td{
+                padding: 10px;
+                button{
+                    border: none;
+                    padding: 8px;
+                    margin: 0px 3px;
+                    font-size: 17px;
+                    cursor: pointer;
+                    color: #ffffff;
+                    border-radius: 3px;
+                    &.btn-modificar{
+                        background: #1565c0;
+                    }
+                    &.btn-eliminar{
+                        background: #b71c1c;
+                    }
+                }
+            }
+        }
+    }
+}

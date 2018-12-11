@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   public nombreUser: string;
   public email: string;
   public usuario: User[];
+  public rol: string;
 
   constructor(
     public userService: UserService,
@@ -29,15 +30,16 @@ export class MenuComponent implements OnInit {
             this.usuario = [];
             item.forEach(element => {
               let x = element.payload.toJSON();
-              x["id"] = element.key;
               if (x["email"] == auth.email) {
                 this.usuario.push(x as User);
                 this.userService.usuarioLogueado = x;
-                console.log("X",x);
+                if (x['rol'] == "admin") {
+                  this.rol = "admin";
+                }
               }
             })
           })
-          this.isLogin=true;
+        this.isLogin = true;
       }
       else {
         this.isLogin = false;

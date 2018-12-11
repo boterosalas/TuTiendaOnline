@@ -1,9 +1,10 @@
 <div class="contenedor-componente-registro-usuario">
   <app-menu></app-menu>
   <div class="contenedor-principal-registro-usuario">
-    <div class="cabecera"></div>
+    <h1 class="titulo-componente">Administrar usuarios</h1>
     <div class="formulario-registro-usuario">
       <form #formUsuarioNuevo="ngForm" (ngSubmit)="registrarUsuario(formUsuarioNuevo)">
+          <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userService.nuevoUsuario.id">
         <div class="form-group">
           <label>
             Nombre:
@@ -41,10 +42,14 @@
           <input type="text" name="genero" #genero="ngModel" [(ngModel)]="userService.nuevoUsuario.genero">
         </div>
         <div class="botonera">
-          <input type="submit" value="Guardar" class="btn btn-guardar">
+          <input type="submit" value="Guardar" *ngIf="formUsuarioNuevo.value.id==null" class="btn btn-guardar">
+          <button (click)="actualizarUsuario(formUsuarioNuevo)" *ngIf="formUsuarioNuevo.value.id!=null" class="btn btn-actualizar">Actualizar</button>
           <button (click)="resetForm(formUsuarioNuevo)" class="btn btn-cancelar">Cancelar</button>
         </div>
       </form>
+    </div>
+    <div class="componente-listar-usuarios">
+      <app-listar-usuarios></app-listar-usuarios>
     </div>
   </div>
 </div>

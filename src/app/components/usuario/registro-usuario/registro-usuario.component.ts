@@ -11,22 +11,29 @@ import { NgForm } from '@angular/forms';
 export class RegistroUsuarioComponent implements OnInit {
 
   constructor(
-    public userService:UserService,
+    public userService: UserService,
   ) { }
 
-  newUser:User
+  newUser: User
 
   ngOnInit() {
     this.userService.conseguirUsuarios();
+    //this.resetForm();
   }
 
-  registrarUsuario(formUsuarioNuevo:NgForm){
-    console.log("form",formUsuarioNuevo.value);
+  registrarUsuario(formUsuarioNuevo: NgForm) {
+    console.log("form", formUsuarioNuevo.value);
     this.userService.registrarUsuario(formUsuarioNuevo.value);
   }
 
-  resetForm(formUsuarioNuevo:NgForm){
+  resetForm(formUsuarioNuevo?: NgForm) {
+    if(formUsuarioNuevo!=null){
+      formUsuarioNuevo.reset();
+    }
+  }
 
+  actualizarUsuario(usuario: User) {
+    this.userService.usuarioLogueado = Object.assign({}, usuario);
   }
 
 }

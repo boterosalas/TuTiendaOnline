@@ -1,0 +1,27 @@
+<div class="contenedor-componente-listar-usuarios">
+  <button (click)="mostrarMas=!mostrarMas">
+    <span *ngIf="!mostrarMas">Mostrar más</span><span *ngIf="mostrarMas">Mostrar menos</span></button>
+  <table class="tabla-usuarios">
+    <tr>
+      <td>Nombre</td>
+      <td>Email</td>
+      <td *ngIf="mostrarMas">Ciudad</td>
+      <td *ngIf="mostrarMas">Género</td>
+      <td *ngIf="mostrarMas">Nacimiento</td>
+      <td *ngIf="mostrarMas">Contraseña</td>
+      <td>Opciones</td>
+    </tr>
+    <tr *ngFor="let usuario of listaUsuarios">
+      <td *ngIf="usuario.rol!='admin'">{{ usuario.nombre }}</td>
+      <td *ngIf="usuario.rol!='admin'">{{ usuario.email }}</td>
+      <td *ngIf="mostrarMas&&usuario.rol!='admin'">{{ usuario.ciudad }}</td>
+      <td *ngIf="mostrarMas&&usuario.rol!='admin'">{{ usuario.genero }}</td>
+      <td *ngIf="mostrarMas&&usuario.rol!='admin'">{{ usuario.fechaNacimiento }}</td>
+      <td *ngIf="mostrarMas&&usuario.rol!='admin'">{{ usuario.password }}</td>
+      <td *ngIf="usuario.rol!='admin'">
+        <button (click)="editar(usuario)" class="btn-modificar"><i class="fas fa-edit"></i></button>
+        <button (click)="eliminar(usuario)" class="btn-eliminar"><i class="fas fa-trash-alt"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>

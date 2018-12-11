@@ -66,12 +66,14 @@ export class UserService {
 
   actualizarUsuario(user: User) {
     this.usuarioFire.updatePassword(user.password);
+    this.usuarioFire.updateEmail(user.email);
     return new Promise((resolve, reject) => {
       console.log('usuarioFire', this.usuarioFire);
       this.afAuth.auth.updateCurrentUser(this.usuarioFire)
         .then(userData => {
           resolve({ userData });
           this.listaUsuarios.update(user.id, {
+            email: user.email,
             nombre: user.nombre,
             password: user.password,
             fechaNacimiento: user.fechaNacimiento,
@@ -83,8 +85,40 @@ export class UserService {
     });
   }
 
-  eliminarUsuario(user: User) {
+  editarUsuarioPorAdmin(user: User){
+    this.usuarioFire.updatePassword(user.password);
+    return new Promise((resolve, reject) => {
+      console.log('usuarioFire', this.usuarioFire);
+      this.afAuth.auth.updateCurrentUser(this.usuarioFire)
+        .then(userData => {
+          resolve({ userData });
+          this.listaUsuarios.update(user.id, {
+            email: user.email,
+            nombre: user.nombre,
+            password: user.password,
+            fechaNacimiento: user.fechaNacimiento,
+            ciudad: user.ciudad,
+            genero: user.genero,
+          })
+        },
+          err => reject(err));
+    });
+  }
+
+  eliminarUsuarioBD(user: User){
     this.listaUsuarios.remove(user.id);
+  }
+
+  eliminarUsuario(user: firebase.User) {
+    return new Promise((resolve, reject) => {
+      console.log('usuarioFire', this.usuarioFire);
+      this.user.delete()
+        .then(userData => {
+          resolve({ userData });
+          
+        },
+          err => reject(err));
+    });
   }
 
 }
