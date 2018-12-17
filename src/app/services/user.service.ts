@@ -15,8 +15,8 @@ export class UserService {
 
   public listaUsuarios: AngularFireList<any>;
   public nuevoUsuario: User = new User();
-  public usuarioLogueado: User = new User();
-  public usuarioFire: firebase.User
+  public usuarioLogueado: User = new User();//este es el usuario logueado de la base de datos
+  public usuarioFire: firebase.User//este es el usuario logueado para la autentificación
 
 
   constructor(
@@ -58,7 +58,14 @@ export class UserService {
       this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
         .then(userData => {
           console.log(userData)
-          this.listaUsuarios.push(user);
+          this.listaUsuarios.push({
+            nombre: user.nombre,
+            password: user.password,
+            fechaNacimiento: user.fechaNacimiento,
+            email: user.email,
+            ciudad: user.ciudad,
+            genero: user.genero,
+          });
         },
           err => console.log(err));
     });
@@ -85,7 +92,7 @@ export class UserService {
     });
   }
 
-  editarUsuarioPorAdmin(user: User){
+  editarUsuarioPorAdmin(user: User) {
     this.usuarioFire.updatePassword(user.password);
     return new Promise((resolve, reject) => {
       console.log('usuarioFire', this.usuarioFire);
@@ -105,20 +112,21 @@ export class UserService {
     });
   }
 
-  eliminarUsuarioBD(user: User){
+  eliminarUsuarioBD(user: User) {
     this.listaUsuarios.remove(user.id);
   }
 
-  eliminarUsuario(user: firebase.User) {
+  /* eliminarUsuario(user: firebase.User) {
     return new Promise((resolve, reject) => {
       console.log('usuarioFire', this.usuarioFire);
       this.user.delete()
         .then(userData => {
           resolve({ userData });
           
+
         },
           err => reject(err));
     });
-  }
+  } */
 
 }

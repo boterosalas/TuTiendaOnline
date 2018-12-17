@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
             item.forEach(element => {
               let x = element.payload.toJSON();
               if (x["email"] == auth.email) {
-                this.usuario.push(x as User);
+                //this.usuario.push(x as User);
                 this.userService.usuarioLogueado = x;
                 if (x['rol'] == "admin") {
                   this.rol = "admin";

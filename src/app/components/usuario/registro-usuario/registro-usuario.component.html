@@ -44,7 +44,7 @@
         <div class="botonera">
           <input type="submit" value="Guardar" *ngIf="formUsuarioNuevo.value.id==null" class="btn btn-guardar">
           <button (click)="actualizarUsuario(formUsuarioNuevo)" *ngIf="formUsuarioNuevo.value.id!=null" class="btn btn-actualizar">Actualizar</button>
-          <button (click)="resetForm(formUsuarioNuevo)" class="btn btn-cancelar">Cancelar</button>
+          <button (click)="reset(formUsuarioNuevo)" class="btn btn-cancelar">Cancelar</button>
         </div>
       </form>
     </div>

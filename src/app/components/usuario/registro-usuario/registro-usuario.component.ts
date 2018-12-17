@@ -18,17 +18,19 @@ export class RegistroUsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.userService.conseguirUsuarios();
-    //this.resetForm();
+    this.reset();
   }
 
   registrarUsuario(formUsuarioNuevo: NgForm) {
     console.log("form", formUsuarioNuevo.value);
-    this.userService.registrarUsuario(formUsuarioNuevo.value);
+    //this.userService.registrarUsuario(formUsuarioNuevo.value);
+    this.reset(formUsuarioNuevo);
   }
 
-  resetForm(formUsuarioNuevo?: NgForm) {
+  reset(formUsuarioNuevo?: NgForm) {
     if(formUsuarioNuevo!=null){
       formUsuarioNuevo.reset();
+      this.userService.nuevoUsuario = new User();
     }
   }
 

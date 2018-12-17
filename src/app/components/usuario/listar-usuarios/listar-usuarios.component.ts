@@ -35,7 +35,7 @@ export class ListarUsuariosComponent implements OnInit {
   }
 
   eliminar(user: User) {
-    this.userService.eliminarUsuario(user);
+    //this.userService.eliminarUsuario(user);
   }
 
 }
