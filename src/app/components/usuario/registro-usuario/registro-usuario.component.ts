@@ -23,7 +23,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
   registrarUsuario(formUsuarioNuevo: NgForm) {
     console.log("form", formUsuarioNuevo.value);
-    //this.userService.registrarUsuario(formUsuarioNuevo.value);
+    this.userService.registrarUsuario(formUsuarioNuevo.value);
     this.reset(formUsuarioNuevo);
   }
 

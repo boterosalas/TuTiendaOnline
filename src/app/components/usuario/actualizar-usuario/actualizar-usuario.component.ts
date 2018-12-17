@@ -11,14 +11,36 @@ import { NgForm } from '@angular/forms';
 export class ActualizarUsuarioComponent implements OnInit {
 
   constructor(
-    public userService:UserService,
+    public userService: UserService,
   ) { }
+
+  usuario: User = new User;
+  listaUsuarios: User[];
 
   ngOnInit() {
   }
 
-  actualizarUsuario(formActualizarUsuario?: NgForm){
-    this.userService.actualizarUsuario(formActualizarUsuario.value);
+  actualizarUsuario(formActualizarUsuario?: NgForm) {
+
+    this.userService.conseguirUsuarios().
+      snapshotChanges()
+      .subscribe(item => {
+        this.listaUsuarios = [];
+        item.forEach(element => {
+          let x = element.payload.toJSON();
+          if(x['email']==this.userService.usuarioLogueado.email){
+            x["id"] = element.key;
+            this.userService.usuarioLogueado.id=x['id'];
+            console.log('x',this.userService.usuarioLogueado)
+            this.listaUsuarios.push(x as User);
+            this.userService.actualizarUsuario(x);
+          }
+        })
+      })
+
+    /* this.userService.usuarioLogueado = Object.assign({}, formActualizarUsuario.value);
+    console.log(this.userService.usuarioLogueado) */
+    //this.userService.actualizarUsuario(id,this.usuario);
   }
 
   resetForm(formActualizarUsuario?: NgForm) {

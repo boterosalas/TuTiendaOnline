@@ -73,20 +73,13 @@ export class UserService {
 
   actualizarUsuario(user: User) {
     this.usuarioFire.updatePassword(user.password);
-    this.usuarioFire.updateEmail(user.email);
     return new Promise((resolve, reject) => {
       console.log('usuarioFire', this.usuarioFire);
       this.afAuth.auth.updateCurrentUser(this.usuarioFire)
         .then(userData => {
-          resolve({ userData });
-          this.listaUsuarios.update(user.id, {
-            email: user.email,
-            nombre: user.nombre,
-            password: user.password,
-            fechaNacimiento: user.fechaNacimiento,
-            ciudad: user.ciudad,
-            genero: user.genero,
-          })
+          console.log("usuarioLogueado.id",this.usuarioLogueado.id)
+          //resolve({ userData });
+          this.listaUsuarios.update(this.usuarioLogueado.id, this.usuarioLogueado)
         },
           err => reject(err));
     });

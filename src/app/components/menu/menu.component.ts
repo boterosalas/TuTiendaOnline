@@ -32,7 +32,9 @@ export class MenuComponent implements OnInit {
               let x = element.payload.toJSON();
               if (x["email"] == auth.email) {
                 //this.usuario.push(x as User);
+                x["id"] = element.key;
                 this.userService.usuarioLogueado = x;
+                console.log("Usuario logueado",this.userService.usuarioLogueado)
                 if (x['rol'] == "admin") {
                   this.rol = "admin";
                 }
