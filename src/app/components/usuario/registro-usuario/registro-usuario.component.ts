@@ -34,8 +34,4 @@ export class RegistroUsuarioComponent implements OnInit {
     }
   }
 
-  actualizarUsuario(usuario: User) {
-    this.userService.usuarioLogueado = Object.assign({}, usuario);
-  }
-
 }

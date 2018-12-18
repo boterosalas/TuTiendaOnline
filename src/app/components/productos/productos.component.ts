@@ -4,6 +4,8 @@ import { Categoria } from 'src/app/models/categoria';
 import { Productos } from 'src/app/models/productos';
 import { CategoriasService } from '../../services/categorias.service';
 import { ProductosService } from '../../services/productos.service';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-productos',
@@ -20,7 +22,10 @@ export class ProductosComponent implements OnInit {
   constructor(
     public router: Router,
     public categoriasServices: CategoriasService,
-    public productosService: ProductosService) { }
+    public productosService: ProductosService,
+    public userService:UserService,
+    public http: HttpClient) { 
+    }
 
   ngOnInit() {
     this.categoriasServices.conseguirCategorias().
@@ -57,6 +62,22 @@ export class ProductosComponent implements OnInit {
           this.listaProductos.push(x as Productos);
         })
       })
+  }
+
+  comprar(producto:Productos){
+    this.http.get('https://script.google.com/macros/s/AKfycbyZCgTExDPWAPKqO0KJigzMUjknTahn1zAjxhRY2yL9q3Avvl8/exec?callback=ctrlq'+
+    '&nombre='+this.userService.usuarioLogueado.nombre+
+    '&email='+this.userService.usuarioLogueado.email+
+    '&edad='+this.userService.usuarioLogueado.edad+
+    '&ciudad='+this.userService.usuarioLogueado.ciudad+
+    '&genero='+this.userService.usuarioLogueado.genero+
+    '&producto='+producto.nombre+
+    '&categoria='+producto.categoria+
+    '&tienda='+producto.tienda+
+    '&precio='+producto.precio)
+    .subscribe(res=>{
+
+    })
   }
 
   onSelect(producto) {

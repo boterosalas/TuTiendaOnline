@@ -34,8 +34,4 @@ export class ListarUsuariosComponent implements OnInit {
     this.userService.nuevoUsuario = Object.assign({}, categoria);
   }
 
-  eliminar(user: User) {
-    //this.userService.eliminarUsuario(user);
-  }
-
 }

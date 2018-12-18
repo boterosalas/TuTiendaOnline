@@ -6,4 +6,5 @@ export class User {
     email?: string;
     ciudad?: string;
     genero?: string;
+    edad? :number;
 }

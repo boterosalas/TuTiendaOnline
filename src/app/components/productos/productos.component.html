@@ -22,7 +22,7 @@
               <div class="nombre-tienda">{{producto.tienda}}</div>
               <div class="precio-compra">
                 <div class="precio">${{producto.precio}}</div>
-                <div class="compra">Comprar</div>
+                <div class="compra" (click)="comprar(producto)">Comprar</div>
               </div>
             </div>
           </div>

@@ -17,6 +17,7 @@ export class UserService {
   public nuevoUsuario: User = new User();
   public usuarioLogueado: User = new User();//este es el usuario logueado de la base de datos
   public usuarioFire: firebase.User//este es el usuario logueado para la autentificación
+  public usuarioFireEliminar: firebase.User//este es el usuario para eliminar en la autentificación
 
 
   constructor(
@@ -104,22 +105,5 @@ export class UserService {
           err => reject(err));
     });
   }
-
-  eliminarUsuarioBD(user: User) {
-    this.listaUsuarios.remove(user.id);
-  }
-
-  /* eliminarUsuario(user: firebase.User) {
-    return new Promise((resolve, reject) => {
-      console.log('usuarioFire', this.usuarioFire);
-      this.user.delete()
-        .then(userData => {
-          resolve({ userData });
-          
-
-        },
-          err => reject(err));
-    });
-  } */
 
 }
